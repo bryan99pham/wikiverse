@@ -31,18 +31,6 @@ export const App = () => {
     }
   }
 
-  async function handleDelete(slug) {
-    try {
-      const response = await fetch(`${apiURL}/wiki/${slug}`, {
-        method: "DELETE",
-      });
-      const data = await response.json();
-      setArticle(null);
-    } catch (err) {
-      console.log("Oh no an error! ", err);
-    }
-  }
-
   useEffect(() => {
     fetchPages();
   }, []);

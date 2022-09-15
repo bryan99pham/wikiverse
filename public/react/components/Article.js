@@ -1,7 +1,14 @@
 import React from "react";
 import apiURL from "../api";
 
-export const Article = ({ props, setArticle, handleSubmit }) => {
+export const Article = ({ props, setArticle }) => {
+  async function handleDelete(event) {
+    const response = await fetch(`${apiURL}/wiki/${props.slug}`, {
+      method: "DELETE",
+    });
+    const data = await response.json();
+    setArticle(null);
+  }
 
   return (
     <>
@@ -16,7 +23,7 @@ export const Article = ({ props, setArticle, handleSubmit }) => {
       </h3>
       <h3>Date Published: {props.createdAt}</h3>
       <button onClick={() => setArticle(null)}>Back to Wiki List</button>
-      <button onClick={handleSubmit}>DELETE</button>
+      <button onClick={() => handleDelete(props.slug)}>DELETE</button>
     </>
   );
 };

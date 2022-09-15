@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Page = (props, {handleSubmit}) => {
+export const Page = (props) => {
   
   return <>
     <h3 onClick={() => props.handleClick(props.page.slug)}>

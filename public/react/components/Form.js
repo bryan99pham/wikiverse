@@ -21,7 +21,7 @@ export const Form = ({setArticle}) => {
     });
 
     const data = await response.json();
-    setArticle({});
+    setArticle(null);
   }
 
   return (
